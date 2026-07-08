@@ -27,6 +27,7 @@ jobs:
       build_publish: ${{ fromJSON(needs.prepare_action_info.outputs.build_publish) }}
       build_version_type: ${{ needs.prepare_action_info.outputs.build_version_type }}
   publish:
+    permissions:
       contents: write
     if: ${{ fromJSON(needs.prepare_action_info.outputs.publish_enable) }}
     uses: ./.github/workflows/publish.yml
